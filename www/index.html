@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/app.css">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/all.min.css">
+
+        <title>Meu Ambiente</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>MEU AMBIENTE</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Carregando</p>
+                <p class="event received">Carregando</p>
+            </div>
+        </div>
+
+        <div class="appIn">
+            <div class="row">
+                <div class="col-12 text-right">
+                    <h5><i style="color: #4A8522" class="fab fa-pagelines"></i> Meu Ambiente</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <ul class="nav nav-tabs" style="border-bottom: 1px solid">
+                      <li><a data-toggle="tab" href="#acompanhe" style="color: #000"><i class="fas fa-list"></i>Acompanhe </a></li>
+                      <li style="margin-left: 20px" ><a data-toggle="tab" href="#nova" style="color: #000"><i class="fa fa-plus"></i> Nova</a></li>
+                      <li style="margin-left: 120px" ><a data-toggle="tab" href="#ajuda" style="color: #000"><i class="fas fa-info-circle"></i> Ajuda</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="tab-content">
+                      <!-- Acompanhe -->
+                      <div id="acompanhe" class="tab-pane fade in active">
+                        <h4>Suas denúncias</h4>
+                        <p class="text-right"><small>Acompanhe aqui o status de suas denúncias.</small></p>
+                        <ul class="list-group">
+                          <li class="list-group-item d-flex row" style="padding: 4px; background-color: transparent">
+                            <div class="col-3 text-center">
+                                <small class="font-style: italic"><b>Data</b></small>
+                            </div>
+                            <div class="col-6 ">
+                                <small class="font-style: italic"><b>Ocorrência</b></small>
+                            </div>
+                            <div class="col-3 text-center">
+                                <small><b>Status</b></small>
+                            </div>
+                          </li>
+                          <li class="list-group-item d-flex row" style="padding: 6px; background-color: transparent">
+                            <div class="col-3 text-center">
+                                <small class="font-style: italic">16/09/2020</small>
+                            </div>
+                            <div class="col-6">
+                                <small>Queda de árvore</small>
+                            </div>
+                            <div class="col-3 text-right">
+                                <span class="badge badge-warning badge-pill">Em Análise</span>
+                            </div>
+                          </li>
+                          <li class="list-group-item d-flex row" style="padding: 6px; background-color: transparent">
+                            <div class="col-3 text-center">
+                                <small class="font-style: italic">20/08/2020</small>
+                            </div>
+                            <div class="col-6">
+                                <small>Lixo em local impróprio</small>
+                            </div>
+                            <div class="col-3 text-right">
+                                <span class="badge badge-success badge-pill">Resolvido</span>
+                            </div>
+                          </li>
+                          <li class="list-group-item d-flex row" style="padding: 6px; background-color: transparent">
+                            <div class="col-3 text-center">
+                                <small class="font-style: italic">13/08/2020</small>
+                            </div>
+                            <div class="col-6">
+                                <small>Poda de árvore</small>
+                            </div>
+                            <div class="col-3 text-right">
+                                <span class="badge badge-warning badge-pill">Em Análise</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <!-- Nova denúncia -->
+                      <div id="nova" class="tab-pane fade">
+                        <h4>Nova denúncia</h4>
+                        <p class="text-right"><small><b>*</b>Não faça mais de uma denúncia para o mesmo problema.</small></p>
+                        <form role="form">
+                            <div class="form-group" style="margin-bottom: 4px">
+                                <label style="margin-bottom: 0">Tipo</label>
+                                <select class="form-control">
+                                    <option>Queda de árvore</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 4px">
+                                <label style="margin-bottom: 0">Endereço</label>
+                                <input type="text" class="form-control" placeholder="Ex.: Rua ABC, 12345">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 4px">
+                                <label style="margin-bottom: 0">Bairro</label>
+                                <input type="text" class="form-control" placeholder="Ex.: Vila dos desastres">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 4px">
+                                <label style="margin-bottom: 0">CEP</label>
+                                <input type="text" class="form-control" placeholder="Somente números">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 4px">
+                                <label style="margin-bottom: 0">Cidade</label>
+                                <select class="form-control">
+                                    <option>São Paulo</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 4px">
+                                <label style="margin-bottom: 0">UF</label>
+                                <select class="form-control">
+                                    <option>SP</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 4px">
+                                <label style="margin-bottom: 0">Breve descrição</label>
+                                <textarea class="form-control" placeholder="Descreva em poucas palavras a ocorrência"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success btn-block">Enviar</button>
+                            </div>
+                        </form>
+                      </div>
+
+                      <!-- Ajuda -->
+                      <div id="ajuda" class="tab-pane fade">
+                        <h4 class="text-center">Instruções</h4>
+                        <ul>
+                            <li>Registre uma nova denúncia no menu <b><i class="fa fa-plus"></i> Nova</a></b></li>
+                            <li>Acompanhe suas denúncias no menu <b><i class="fas fa-list"></i>Acompanhe </a></b></li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .appIn -->
+        <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+
+    </body>
+</html>
